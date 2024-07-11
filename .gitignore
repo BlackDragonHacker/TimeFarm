@@ -1,0 +1,12 @@
+# Ignore compiled Python files
+*.pyc
+
+# Ignore virtual environment
+venv/
+
+# Ignore data and token files (assuming these contain sensitive information)
+data.txt
+token.txt
+
+# Ignore any other files not necessary for deployment
+# Add more entries as needed depending on your project structure

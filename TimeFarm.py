@@ -224,17 +224,14 @@ def main():
                     if tasks:
                         for task in tasks:
                             if task.get('submission', {}).get('status') == 'CLAIMED':
-                                print(Fore.GREEN + Style.BRIGHT + f"\rTask : {task['title']} | Claimed                                               ", flush=True)
-                            elif task.get('submission', {}).get('status') == 'COMPLETED':
-                                print(Fore.GREEN + Style.BRIGHT + f"\rTask : Claiming {task['title']}", flush=True)
-                                response = claim_task(token, task['id'])
-                                if response is not None:
-                                    if 'error' in response:
-                                        if response['error']['message'] == "Failed to claim reward":
-                                            print(Fore.RED + Style.BRIGHT + f"\rTask : Claim task: {task['title']} | Already claimed", end="", flush=True)
-                                    else:
-                                        print(Fore.GREEN + Style.BRIGHT + f"\rTask : Claim task: {task['title']} | Claimed", flush=True)    
-                            
+                                print(Fore.GREEN + Style.BRIGHT + f"\rTask : Claimed Already", flush=True)
+                            elif task.get('submission', {}).get('status') == 'STARTED':
+                                print(Fore.YELLOW + Style.BRIGHT + f"\rTask : Submitting ...", end="", flush=True)
+                                submit_task(token, task['id'])
+                                print(Fore.GREEN + Style.BRIGHT + f"\rTask : Submitted Successful", flush=True)
+                                print(Fore.YELLOW + Style.BRIGHT + f"\rTask : Claiming ...", end="", flush=True)
+                                claim_task(token, task['id'])
+                                print(Fore.GREEN + Style.BRIGHT + f"\rTask : Claimed Successful", flush=True)
                             else:
                                 print(f"\rTask : Submit task: {task['title']}", end="", flush=True)
                                 if task.get('submission', {}).get('status') == 'SUBMITTED':
@@ -252,7 +249,7 @@ def main():
                                 if response is not None:
                                     if 'error' in response:
                                         if response['error']['message'] == "Failed to claim reward":
-                                            print(Fore.RED + Style.BRIGHT + f"\rTask : Claim task: {task['title']} | Failed to claim reward / already claimed", end="", flush=True)
+                                            print(Fore.RED + Style.BRIGHT + f"\rTask : Claim task: {task['title']} | Failed to claim reward", end="", flush=True)
                                     else:
                                         print(Fore.GREEN + Style.BRIGHT + f"\rTask : Claim task: {task['title']} | Claimed", flush=True)
                 print(Fore.YELLOW + Style.BRIGHT + f"\rFarming : Checking ...", end="", flush=True)

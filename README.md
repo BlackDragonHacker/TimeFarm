@@ -127,10 +127,10 @@ Click the following url to register : [TimeFarm Bot](https://t.me/TimeFarmCrypto
 
 # How to get auth token
 
-`Network` < `info` < `Headers` <`authorization`
+`Application` < `Session Storage` < `__telegram__initParams` <`https://timefarm.app` < `tgWebAppData`
 
-then copy without `Bearer` only copy `ey...` and  paste `data.txt` file
+then only copy `query_id` and  paste `query.txt` file
 
-<a href="https://ibb.co/10xrvSt"><img src="https://i.ibb.co/VL8gjKc/Screenshot-20240711-164528-Kiwi-Browser-2.jpg" alt="Screenshot-20240711-164528-Kiwi-Browser-2" border="0"></a>
+<a href="https://ibb.co/BK0Z0MT"><img src="https://i.ibb.co/VpfSf4M/In-Shot-20240717-115354357.jpg" alt="In-Shot-20240717-115354357" border="0"></a>
 
 # Thank you
